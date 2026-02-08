@@ -1,0 +1,13 @@
+spring:
+  datasource:
+    # 1. Ensure the DB name matches what you created in the terminal
+    url: jdbc:mysql://localhost:3306/login_chatbot_db
+    # 2. Change 'your_username' to 'root'
+    username: root
+    # 3. If you didn't set a password during the 'brew' install, use an empty string ""
+    password: "" 
+    driver-class-name: com.mysql.cj.jdbc.Driver
+  jpa:
+    hibernate:
+      ddl-auto: update
+    show-sql: true
