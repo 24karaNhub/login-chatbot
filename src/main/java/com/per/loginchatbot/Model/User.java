@@ -1,4 +1,4 @@
-package com.per.loginchatbot.Model;
+package com.per.loginchatbot.model;
 
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
