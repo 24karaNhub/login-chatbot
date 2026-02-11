@@ -10,3 +10,4 @@ public interface UserReop extends JpaRepository<User, Integer> {
     User findByEmail(String email);
     
 }
+

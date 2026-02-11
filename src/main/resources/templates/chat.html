@@ -4,20 +4,33 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Chat Application</title>
-    <link rel="stylesheet" href="stylesheet.css">
-</head> <body>
-    <h2>Chat Application</h2>
-    <h2>My Chatbot</h2>
-    
-    <h1>Welcome to the Chat, <span th:text="${username}">Guest</span>!</h1>
-
-    <div id="chat-box" style="border:1px solid black; height:300px; width:300px; overflow-y:scroll; padding:10px;">
+    <link rel="stylesheet" th:href="@{/stylesheet.css}">
+</head>
+<body>
+    <div class="header-container">
+        <h1>My Chatbot</h1>
     </div>
 
-    <input type="text" id="messageInput" placeholder="Type your message">
-    <button onclick="sendMessage()">Send</button>
+    <div id="chat-window">
+        <div class="chat-header">
+            Welcome, <span th:text="${username}">Guest</span>!
+        </div>
 
-    <script src="/chat.js"></script>
+        <div id="messages-container">
+            <div class="message bot-message">Hello! How can I help you today?</div>
+        </div>
+        
+        <div id="typing-indicator" class="typing">Bot is typing...</div>
+
+        <div class="input-area">
+            <input type="text" id="messageInput" 
+                   placeholder="Type your message..." 
+                   autocomplete="off" 
+                   onkeypress="if(event.key === 'Enter') sendMessage()">
+            <button onclick="sendMessage()">Send</button>
+        </div>
+    </div>
+
+    <script th:src="@{/chat.js}"></script>
 </body>
 </html>
-     

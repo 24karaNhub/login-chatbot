@@ -1,20 +1,161 @@
+/* 1. Global & Background Setup */
+body {
+    margin: 0;
+    padding: 0;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background: url("v1016-b-09.jpg") no-repeat center center fixed;
+    background-size: cover;
+    font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+}
+
+/* ---------- Main Chat Window ---------- */
 #chat-window {
-    width: 400px;
-    height: 600px;
-    border: 1px solid #ccc;
-    border-radius: 5px;
+    width: 420px;
+    height: 650px;
+    background: rgba(80, 73, 73, 0.793);
+    backdrop-filter: blur(18px);
+    -webkit-backdrop-filter: blur(18px);
+    border-radius: 22px;
+    border: 1px solid rgba(255, 255, 255, 0.25);
     overflow: hidden;
     display: flex;
     flex-direction: column;
-    font-family: Arial, sans-serif;
-    justify-content: space-between;
-
+    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.3);
+    margin-top: 10px;
+    transition: all 0.4s ease;
 }
-button {
-    background-color: #4CAF50;
+
+#chat-window:hover {
+    transform: translateY(-10px) scale(1.02);
+    box-shadow: 0 30px 70px rgba(0, 0, 0, 0.4);
+}
+
+/* ---------- Header ---------- */
+.chat-header {
+    background: linear-gradient(135deg, #8a7b7b, #858585);
+    color: whitesmoke;
+    padding: 14px;
+    text-align: center;
+    font-weight: 600;
+    font-size: 14px;
+    letter-spacing: 0.5px;
+}
+
+/* ---------- Messages ---------- */
+#messages-container {
+    flex: 1;
+    padding: 20px;
+    overflow-y: auto;
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+}
+
+.message {
+    max-width: 80%;
+    padding: 12px 16px;
+    border-radius: 18px;
+    font-size: 14.5px;
+    line-height: 1.5;
+    animation: fadeIn 0.4s ease-out forwards;
+    transition: all 0.25s ease;
+}
+
+.message:hover {
+    transform: scale(1.03);
+}
+
+/* User Message */
+.user-message {
+    align-self: flex-end;
+    background: linear-gradient(135deg, #4CAF50, #66bb6a);
     color: white;
-    padding: 10px 15px;
+    border-bottom-right-radius: 6px;
+    box-shadow: 0 6px 15px rgba(168, 240, 53, 0.825);
+}
+
+/* Bot Message */
+.bot-message {
+    align-self: flex-start;
+    background: rgba(255, 255, 255, 0.9);
+    color: #333;
+    border-bottom-left-radius: 6px;
+    box-shadow: 0 6px 15px rgba(166, 211, 68, 0.08);
+}
+
+/* ---------- Input Area ---------- */
+.input-area {
+    padding: 15px 20px;
+    background: rgba(141, 125, 125, 0.85);
+    display: flex;
+    gap: 10px;
+    align-items: center;
+    border-top: 1px solid rgba(0, 0, 0, 0.05);
+}
+
+/* Input Field */
+input[type="text"] {
+    flex: 1;
+    border: 1px solid #ddd;
+    border-radius: 25px;
+    padding: 10px 18px;
+    outline: none;
+    font-size: 14px;
+    transition: all 0.3s ease;
+}
+
+input[type="text"]:focus {
+    border-color: #4CAF50;
+    box-shadow: 0 0 8px rgba(76, 175, 80, 0.4);
+}
+
+/* Placeholder */
+#messageInput::placeholder {
+    color: #888;
+    opacity: 0.9;
+}
+
+/* ---------- Button ---------- */
+button {
+    background: linear-gradient(135deg, #4CAF50, #2e7d32);
+    color: white;
+    padding: 10px 22px;
     border: none;
-    border-radius: 3px;
+    border-radius: 25px;
     cursor: pointer;
+    font-weight: 600;
+    transition: all 0.3s ease;
+}
+
+button:hover {
+    background: linear-gradient(135deg, #9190a4, #556890c1);
+    transform: scale(1.1);
+    box-shadow: 0 8px 20px rgba(0, 212, 255, 0.4);
+}
+
+/* Typing Indicator */
+.typing {
+    font-style: italic;
+    font-size: 12px;
+    color: #555;
+    padding: 0 20px 10px 20px;
+    display: none;
+}
+
+/* Animation */
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(15px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+/* Title */
+h1 {
+    color: white;
+    font-weight: 700;
+    letter-spacing: 1px;
+    text-shadow: 2px 2px 6px rgba(0, 0, 0, 0.6);
 }
